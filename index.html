@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix - Watch Tv Shows Online, Watch, Movies Online</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+        }
+        body{
+            font-family: sans-serif;
+            background-color: black;
+        }
+
+        .container{
+            width:90%;
+            margin:auto;
+            max-width:1800px;
+        }
+        ul{
+            list-style:none;
+        }
+        a{
+            text-decoration:none;
+        }
+        .mt-1{
+            margin-top:1.5rem;
+        }
+        header{
+            background: linear-gradient(rgba(20,20,20,.7),rgba(20,20,20,.7)),url("images/background image.jpg");
+            background-size:cover;
+            background-position:center;
+            background-repeat:no-repeat;
+            height: 500px;    
+        
+        }
+        .nav-logo{
+            width:200px;
+        }
+        .main-nav{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+        }
+        .main-nav-menu{
+            display:flex;
+            align-items:center;
+            column-gap:1rem;
+        }
+        .language-selector-wrapper{
+            position:relative;
+            display:inline-block;
+        }
+        .language-selector-wrapper::after{
+            content:"▿";
+            position:absolute;
+            top:50%;
+            right:10px;
+            transform:translateY(-50%);
+            pointer-events:none;
+            color:white;
+            font-size:12px;
+        }
+        .language-selector{
+            background-color:black;
+            color:white;
+            width:150px;
+            height:40px;
+            padding:0 1.5rem;
+            outline:none;
+            appearance:none;
+            border:1px solid white;
+            border-radius:4px;
+            font-size:18px;
+        }
+        .sign-in-btn{
+            background-color:#e50914;
+            color:#111;
+            padding:8px 17px;
+            border-radius:4px;
+            font-size:16px;
+            font-weight:bold;
+            cursor:pointer;
+            transition:all .1s ease-in;
+        }
+        .sign-in-btn:hover{
+            background-color:#e50914;
+        }
+        .header-showcase-text-container{
+            text-align:center;
+            width:42%;
+            margin:8rem auto 0rem auto;
+            color:white;
+        }
+        h1{
+            font-size:45px;
+            font-weight:700;
+            line-height:1.1;
+            margin-bottom:1rem;
+        }
+        .showcase-p{
+            font-size:20px;
+            margin-bottom:1rem;
+        }
+        .email-form{
+            display:flex;
+            justify-content:center;
+            margin-top:1.5rem;
+            align-items:center;
+            column-gap: 8px;
+        }
+        .email-input{
+            width:400px;
+            height: 60px;
+            background-color: black;
+            border:1px solid white;
+            padding:1rem;
+            outline: none;
+            color: white;
+            border-radius: 10px;
+            font-size: 20px;
+            opacity: .7;
+        }
+        .get-started-btn{
+            background-color: #e50914;
+            border:none;
+            border-radius: 7px;
+            width:250px;
+            height:60px;
+            font-size: 24px;
+            font-weight: 600;
+            color:#111;
+            cursor:pointer;
+            transition: all .1s ease-in;
+        }
+        .get-started-btn:hover{
+            background-color: #e50914;
+        }
+        .red-divider{
+            background-color:#ed2939;
+            height:2px;
+        
+        }
+        .trending-now{
+            margin:3rem 0rem;
+        }
+        .section-header{
+            font-size: 32px;
+            color: white;
+            margin-bottom: 1rem;
+        }
+        .movie-container{
+            row-gap: 1rem;
+            grid-template-columns: repeat(5,1fr);
+    
+        }
+        .netflix-movie{
+            width:220px;
+            cursor: pointer;
+            transition: all .1s ease-in;
+            border-radius: 10px;
+            transition: all .2s ease-in-out;
+        }
+
+
+        @media screen and (max-width:1367px) {
+            .header-showcase-text-container {
+                width:50%;
+            }
+            .get-started-btn {
+                font-size: 20px;
+            }
+        
+        }
+
+        @media screen and (max-width:767px){
+            header{
+                height:650px;
+            }
+            .nav-logo{
+                width:80px;   
+            }
+            .language-selector{
+                width:100px;
+            }
+            .sign-in-btn{
+                padding:.4rem 1.2rem;
+                font-size:14px;
+            }
+            .header-showcase-text-container{
+                width:90%;
+                margin:5rem auto 0rem auto;
+            }
+            h1{
+                font-size: 35px;
+            }
+            .showcase-p{
+                font-size: 16px;
+            }
+            .email-form{
+                margin-top: 1.5rem;
+                flex-direction: column;
+                column-gap: 0px;
+                row-gap: 8px;
+            }
+            .email-input{
+                width:90%;
+            }
+            .movie-container{
+                display: grid;
+                grid-template-columns: repeat(5, 1fr);
+                justify-content: center;
+                align-items: center;
+                padding:1rem;
+
+            }
+            .netflix-movie{
+                width:70px;
+            }
+            .get-started-btn{
+                width:70%;
+            }
+        }
+        @media screen and (max-width:350px){
+            .nav-logo{
+                width:70px;   
+            }
+            .language-selector{
+                width:100px;
+            }
+            .sign-in-btn{
+                padding: 0.3em 1rem;
+            }
+        }
+        
+
+    </style>
+</head>
+
+<body>
+        <header>
+        <div class="container">
+            <nav class="main-nav">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg"
+                class="nav-logo" alt="Netflix">
+                <ul class="main-nav-menu">
+                    <li class="nav-li">
+                        <form>
+                            <div class="language-selector-wrapper">
+                                <select class="language-selector">
+                                    <option value="english">English</option>
+                                    <option value="espanol">Espanol</option>
+                                </select>
+                            </div>
+                        </form>
+                    </li>
+                    <li classs="nav-li">
+                        <a class="sign-in-btn">Sign in</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="header-showcase-text-container">
+                <h1>Unlimited movies, TV shows, and more</h1>
+                <p class="showcase-p">Starts at #2,500.Cancel anytime.</p>
+                <p class="showcase-p mt-1">Ready to watch? Enter your email to create or restart your membership</p>
+                <form class="email-form">
+                    <input type="email" class="email-input" placeholder="Email address" required>
+                    <button class="get-started-btn" type="submit">Get Started <i class="bi bi-chevron-right"></i></button>
+                </form>
+            </div>
+        </div>
+    </header>
+    <div class="red-divider"></div>
+
+    <section class="Trending-now">
+        <div class ="container">
+            <h2 class="section-header">Trending Now</h2>
+            <div class="movie-container">
+                <img src="images/netflix-movie-1.jpg" alt="netflix-movie" class="netflix-movie">
+                <img src="images/netflix-movie-2.jpg" alt="netflix-movie" class="netflix-movie">
+                <img src="images/netflix-movie-3.jpg" alt="netflix-movie" class="netflix-movie">
+                <img src="images/netflix-movie-4.jpg" alt="netflix-movie" class="netflix-movie">
+                <img src="images/netflix-movie-5.jpg" alt="netflix-movie" class="netflix-movie">
+                <img src="images/netflix-movie-6.jpg" alt="netflix-movie" class="netflix-movie">
+                <img src="images/netflix-movie-7.jpg" alt="netflix-movie" class="netflix-movie">
+                <img src="images/netflix-movie-8.jpg" alt="netflix-movie" class="netflix-movie">
+                <img src="images/netflix-movie-9.jpg" alt="netflix-movie" class="netflix-movie">
+                <img src="images/netflix-movie-10.jpg" alt="netflix-movie" class="netflix-movie">
+            </div>
+        </div>
+    </section>
+    
+</body>
+</html>
