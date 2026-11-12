@@ -17,7 +17,7 @@
         }
 
         .container{
-            width:90%;
+            width:100%;
             margin:auto;
             max-width:1800px;
         }
@@ -154,18 +154,242 @@
             margin-bottom: 1rem;
         }
         .movie-container{
-            row-gap: 1rem;
-            grid-template-columns: repeat(5,1fr);
+            position:relative;
+            padding:0 3rem;
+            width: 100%;
+        }
+        .movie-viewport{
+            overflow:hidden;
+        }
+        .movie-track{
+            display:flex;
+            transition:transform .4s ease;
     
         }
+        .movie-slide{
+            flex:0 0 100%;
+            display:grid;
+            grid-template-columns:repeat(5, minmax(0, 1fr));
+            gap:1rem;
+        }
+        .movie-poster{
+            position:relative;
+            min-width:0;
+        }
+        .movie-number{
+            position:absolute;
+            left:.2rem;
+            bottom:.15rem;
+            z-index:1;
+            color:white;
+            font-size:3rem;
+            font-weight:700;
+            line-height:1;
+            text-shadow:3px 2px 5px black;
+        }
         .netflix-movie{
-            width:220px;
+            display:block;
+            width: 100%;
+            height:auto;
+            aspect-ratio:2 / 3;
+            object-fit:cover;
             cursor: pointer;
-            transition: all .1s ease-in;
             border-radius: 10px;
             transition: all .2s ease-in-out;
         }
+        
+        .carousel-button{
+            position:absolute;
+            z-index:1;
+            top:50%;
+            display:grid;
+            place-items:center;
+            width:42px;
+            height:72px;
+            border:0;
+            border-radius:6px;
+            background:rgba(40,40,40,.9);
+            color:white;
+            font-size:1.75rem;
+            cursor:pointer;
+            transform:translateY(-50%);
+        }
+        .carousel-button:hover,
+        .carousel-button:focus-visible{
+            background:#555;
+        }
+        .carousel-button:focus-visible{
+            outline:2px solid white;
+            outline-offset:2px;
+        }
+        .carousel-button-prev{
+            left:0;
+        }
+        .carousel-button-next{
+            right:0;
+        }
+        .reasons-section{
+            margin:3rem 0;
+        }
+        .reasons-container{
+            display:grid;
+            grid-template-columns:repeat(4, 1fr);
+            justify-items:stretch;
+            align-items:stretch;
+            column-gap:1.3rem;
+            padding-top:2rem;
+            gap:23px;
+        }
+        .reason-card{
+            color:white;
+            background-color:#1A2245;
+            background: linear-gradient(117deg, rgba(26,34,69,1) 24%, rgba(30,21,40,1) 61%, rgba(33,14,23,1) 89%);
+            border-radius:12px;
+            padding:2rem;
+            display:grid;
+            grid-template-columns:minmax(0, 1fr) auto;
+            min-height:350px;
+            gap:1rem;
+            width:100%;
+            min-width:0;
+        }
+        .reason-card > div{
+            min-width:0;
+        }
+        .reason-card h3{
+            font-size:1.35rem;
+            margin-bottom:.75rem;
+        }
+        .reason-card p{
+            opacity: .8;
+            font-size: 17px;
+            margin-bottom: .5;
+        }
+        .reason-card .bi{
+            display: flex;
+            align-self: flex-end;
+            color: #cd54dbff;
+            font-size: 1.9rem;     
+        }
+        .faqs{
+            margin:3rem 0rem;
+        }
+        .faq {
+                background-color: #2d2d2d;
+                color: white;
+                padding: 2rem 1.5rem;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                cursor: pointer;
+                transition: background-color.1s ease-in;
+            }
+            .faq-hover{
+                background-color: #333;
+            }
+            .faq-question {
+                font-weight: 300;
+                font-size: 24px;
+            }
+            .faq-answer-container{
+                background: #2d2d2d;
+                color: white; 
+                margin: 5px 0px;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                transform: translateY(-10px);
+                transition: max-height 0.4s ease, opacity 0.4s ease, transform 0.4s ease ;
 
+            }
+            .faq-answer{
+                font-size: 20px;
+                margin-top: 1.5rem;
+
+            }
+            .bi-plus{
+                font-size: 40px;
+            }
+            .bi-x{
+                font-size: 40px;
+                display: none;
+            }
+            .faq.open+.faq-answer-container{
+                display: block;
+                max-height: 1000px;
+                opacity: 1;
+                transform: translateY(0);
+            }
+    
+            .faq.open .bi-plus{
+                display:none;
+            }
+            .faq.open .bi-x{
+                display: inline-block;
+            }
+            .faq-text-container{
+                padding:1.5rem;
+
+            }
+            .bottom-email-form{
+                margin:3rem 0rem;
+            }
+            .bottom-email-p{
+                color: white;
+                text-align: center;
+                font-size: 21
+                
+            }
+            .phone-number{
+                color: #b3b3b3;
+                font-size: 18px;
+                gap:20px
+            }
+            .underline{
+                text-decoration: underline;
+            }
+            .footer-menu-container{
+                color:#b3b3b3;
+                display: grid;
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+                column-gap: 2rem;
+                margin:5rem 0rem;
+
+            }
+            .footer-menu{
+                display: contents;
+            }
+            .footer-menu-li{
+                padding: .5rem 0rem;
+
+            }
+            .footer-menu-link{
+                text-decoration: underline;
+                font-size: 16px;
+                cursor:pointer;
+
+            }
+            .footer-recaptcha-text{
+                color:#b3b3b3;
+                margin: 4rem 0;
+                font-size: 13px;
+
+            }
+            .learn-more-link{
+                color: #4486f4;
+                text-decoration: underline;
+                cursor: pointer;
+            }
+
+
+            
+
+
+        @media screen and (max-width:1024px){
+            .reasons-container{
+                grid-template-columns:repeat(2, minmax(0, 1fr));
+            }
+        }
 
         @media screen and (max-width:1367px) {
             .header-showcase-text-container {
@@ -211,18 +435,83 @@
                 width:90%;
             }
             .movie-container{
-                display: grid;
-                grid-template-columns: repeat(5, 1fr);
-                justify-content: center;
-                align-items: center;
-                padding:1rem;
-
+                padding:0;
+                width: 100%;   
             }
-            .netflix-movie{
-                width:70px;
+        
+            .movie-track{
+                display:block;
+                transform:none !important;
+                transition:none;
             }
+            .movie-slide{
+                grid-template-columns:repeat(5, minmax(0, 1fr));
+                margin-bottom:1rem;
+                width:100%;
+            }
+            .carousel-button{
+                display:none;
+            }
+            .reasons-container{
+                grid-template-columns:repeat(2, minmax(0, 1fr));
+                width: 100%;
+            }
+            .movie-number{
+                font-size: 2.2rem;
+                font-weight: 700;
+                left: .35rem;
+                bottom: .2rem;
+            }
+            .reason-card{
+                min-height:0;
+            
+            }
+            .reason-card h3{
+                font-size:1.1rem;
+            }
+            
             .get-started-btn{
                 width:70%;
+            }
+        
+            .faq-text-container{
+                padding:1.5rem;
+            }
+            .bi-plus{
+                font-size: 30px;
+            }
+            .bi-x{
+                font-size: 30px;
+                display: none;
+            }
+            .faq-answer{
+                font-size: 21px;
+
+            }
+            .faq-question{
+                font-size: 21px;
+                font-weight: 400;
+            }
+            .footer-menu-container{
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                column-gap: 1rem;
+            }
+            .footer-menu{
+                display: contents;
+            }
+        }
+        .bottom-email-p{
+            font-size: 18px;
+            text-align: center;
+        }
+        @media screen and (max-width:480px){
+            .reasons-container{
+                grid-template-columns:1fr;
+            }
+            .movie-number{
+                font-size: 1.6rem;
+                left: .25rem;
+                
             }
         }
         @media screen and (max-width:350px){
@@ -235,12 +524,32 @@
             .sign-in-btn{
                 padding: 0.3em 1rem;
             }
+            .movie-number{
+                font-size: 1.3rem;
+            }
+            .faq-text-container{
+                padding:1.5rem;
+            }
+            .bi-plus{
+                font-size: 25px;
+            }
+            .bi-x{
+                font-size: 25px;
+                display: none;
+            }
+            .faq-answer{
+                font-size: 18px;
+
+            }
+            .faq-question{
+                font-size: 18px;
+                font-weight: 400;
+            }
         }
         
 
     </style>
 </head>
-
 <body>
         <header>
         <div class="container">
@@ -276,23 +585,245 @@
     </header>
     <div class="red-divider"></div>
 
-    <section class="Trending-now">
-        <div class ="container">
+    <section class="trending-now">
+        <div class="container">
             <h2 class="section-header">Trending Now</h2>
             <div class="movie-container">
-                <img src="images/netflix-movie-1.jpg" alt="netflix-movie" class="netflix-movie">
-                <img src="images/netflix-movie-2.jpg" alt="netflix-movie" class="netflix-movie">
-                <img src="images/netflix-movie-3.jpg" alt="netflix-movie" class="netflix-movie">
-                <img src="images/netflix-movie-4.jpg" alt="netflix-movie" class="netflix-movie">
-                <img src="images/netflix-movie-5.jpg" alt="netflix-movie" class="netflix-movie">
-                <img src="images/netflix-movie-6.jpg" alt="netflix-movie" class="netflix-movie">
-                <img src="images/netflix-movie-7.jpg" alt="netflix-movie" class="netflix-movie">
-                <img src="images/netflix-movie-8.jpg" alt="netflix-movie" class="netflix-movie">
-                <img src="images/netflix-movie-9.jpg" alt="netflix-movie" class="netflix-movie">
-                <img src="images/netflix-movie-10.jpg" alt="netflix-movie" class="netflix-movie">
+                <div class="movie-viewport">
+                    <div class="movie-track">
+                        <div class="movie-slide">
+                            <div class="movie-poster"><span class="movie-number">1</span><img src="images/netflix-movie-1.jpg" alt="netflix movie 1" class="netflix-movie"></div>
+                            <div class="movie-poster"><span class="movie-number">2</span><img src="images/netflix-movie-2.jpg" alt="netflix movie 2" class="netflix-movie"></div>
+                            <div class="movie-poster"><span class="movie-number">3</span><img src="images/netflix-movie-3.jpg" alt="netflix movie 3" class="netflix-movie"></div>
+                            <div class="movie-poster"><span class="movie-number">4</span><img src="images/netflix-movie-4.jpg" alt="netflix movie 4" class="netflix-movie"></div>
+                            <div class="movie-poster"><span class="movie-number">5</span><img src="images/netflix-movie-5.jpg" alt="netflix movie 5" class="netflix-movie"></div>
+                        </div>
+                        <div class="movie-slide">
+                            <div class="movie-poster"><span class="movie-number">6</span><img src="images/netflix-movie-6.jpg" alt="netflix movie 6" class="netflix-movie"></div>
+                            <div class="movie-poster"><span class="movie-number">7</span><img src="images/netflix-movie-7.jpg" alt="netflix movie 7" class="netflix-movie"></div>
+                            <div class="movie-poster"><span class="movie-number">8</span><img src="images/netflix-movie-8.jpg" alt="Trending movie 8" class="netflix-movie"></div>
+                            <div class="movie-poster"><span class="movie-number">9</span><img src="images/netflix-movie-9.jpg" alt="Trending movie 9" class="netflix-movie"></div>
+                            <div class="movie-poster"><span class="movie-number">10</span><img src="images/netflix-movie-10.jpg" alt="Trending movie 10" class="netflix-movie"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="carousel-button carousel-button-prev" type="button" aria-label="Show previous movie set">
+                    <i class="bi bi-chevron-left"></i>
+                </button>
+                <button class="carousel-button carousel-button-next" type="button" aria-label ="Show next movie set">
+                    <i class="bi bi-chevron-right" ></i>
+                </button>
             </div>
         </div>
     </section>
-    
+
+    <section class="reasons-section">
+        <div class="container">
+            <h2 class="section-header">More reasons to join</h2>
+            <div class="reasons-container">
+                <article class="reason-card">
+                    <div>
+                        <h3>Enjoy on your TV</h3>
+                        <p>Watch on Smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players and more.</p>
+                    </div>
+                    <i class="bi bi-tv"></i>
+                </article>
+                <article class="reason-card">
+                    <div>
+                        <h3>Download your shows</h3>
+                        <p>Save your favourites easily and always have something to watch.</p>
+                    </div>
+                    <i class="bi bi-download"></i>
+                </article>
+                <article class="reason-card">
+                    <div>
+                        <h3>Watch everywhere</h3>
+                        <p>Stream unlimited movies and TV shows on your phone, tablet, laptop and TV.</p>
+                    </div>
+                    <i class="bi bi-display"></i>
+                </article>
+                <article class="reason-card">
+                    <div>
+                        <h3>Create profiles for kids</h3>
+                        <p>Send kids on adventures with their favourite characters in a space made just for them.</p>
+                    </div>
+                    <i class="bi bi-person-hearts" ></i>
+                </article>
+            </div>
+        </div>
+    </section>
+        <section class="faqs">
+            <div class="container">
+                <h2 class="section-header">Frequently Asked Questions</h2>
+                <div class="faq">
+                    <h3 class="faq-question">What is Netflix?</h3>
+                    <div class="faq-icon-container">
+                        <i class="bi bi-plus"></i>
+                        <i class="bi bi-x"></i>
+                    </div>
+                </div>
+                <div class="faq-answer-container">
+                    <div class="faq-text-container">
+                        <p class="faq-answer">Netflix is a steaming service that offers a wide variety of award-winning Tv shows, movies,anime,documentaries, and more on thousands of internet-connected devices.</p>
+                        <p class="faq-answer">You can watch as much as you want, whenever, you want - all for one low monthly price.
+                            There's always something new to discover and new Tv shows and movies are added every week!</p>
+                        
+                    </div>
+                </div>
+                <div class="faq">
+                    <h3 class="faq-question">How much does Netflix cost?</h3>
+                    <div class="faq-icon-container">
+                        <i class="bi bi-plus"></i>
+                        <i class="bi bi-x"></i>
+                    </div>
+                </div>
+                <div class="faq-answer-container">
+                    <div class="faq-text-container">
+                        <p class="faq-answer">Watch Netflix on your smartphone, tablet,Smart Tv, Laptop, or streaming devices, all for one fixed monthly fee.Plans range from #2500 to #4000 a month (pre-tax). No extra costs,no contracts</p>     
+                    </div>
+                </div> 
+
+                    <div class="faq">
+                    <h3 class="faq-question">Where can I watch?</h3>
+                    <div class="faq-icon-container">
+                        <i class="bi bi-plus"></i>
+                        <i class="bi bi-x"></i>
+                    </div>
+                </div>
+                <div class="faq-answer-container">
+                    <div class="faq-text-container">
+                        <p class="faq-answer">Watch anywhere, anytime.Sign in with your Netflix account to watch instantly on the web at Netflix app, including smart Tvs, smartphones,tablets,streaming media players and game consoles.</p>
+                        <p class="faq-answer">You can also download your favourite shows with the iOS or Android app. Use downloads to watch while you're on the go and without an internet connection. Take Netflix with you anywhere.</p>
+                    </div>
+                </div> 
+                
+                    <div class="faq">
+                    <h3 class="faq-question">How do i cancel?</h3>
+                    <div class="faq-icon-container">
+                        <i class="bi bi-plus"></i>
+                        <i class="bi bi-x"></i>
+                    </div>
+                </div>
+                <div class="faq-answer-container">
+                    <div class="faq-text-container">
+                        <p class="faq-answer">Netflix is Flexible. There are no pesky contracts and no commitments.You can easily cancel your account online in two clicks.There are no canellation fees - start or stop your account anywhere.</p>
+                    </div>
+                </div> 
+                    <div class="faq">
+                    <h3 class="faq-question">What can i watch on Netflix?</h3>
+                    <div class="faq-icon-container">
+                        <i class="bi bi-plus"></i>
+                        <i class="bi bi-x"></i>
+                    </div>
+                </div>
+                <div class="faq-answer-container">
+                    <div class="faq-text-container">
+                        <p class="faq-answer">Netflix has an extensive library of features films,documentaries, Tv shows, anime, award-winning Netflix originals, and more.Watch as much as you want, anytime you want.</p>
+                    </div>
+                </div> 
+                <div class="faq">
+                    <h3 class="faq-question">is Neetflix goo for Kids?</h3>
+                    <div class="faq-icon-container">
+                        <i class="bi bi-plus"></i>
+                        <i class="bi bi-x"></i>
+                    </div>
+                </div>
+                <div class="faq-answer-container">
+                    <div class="faq-text-container">
+                        <p class="faq-answer">The Netflix Kids experience is included in your membership to give parents control while kids enjoy family-friendly Tv Shows and movies in their own space.</p>
+                        <p class="faq-answer">Kids profiles come with PIN-Protected parental controls that let you restrict the maturity rating of content kids can watch and block specific titles you don't want kids to see.</p>
+                    </div>
+                </div>     
+            </div>
+        </section>
+        <section class="bottom-email-form">
+            <div class="container">
+            <p class="bottom-email-p">
+                Ready to watch? Enter email to create or restart your membership.</p>
+                <form class="email-form">
+                    <input type="email" class="email-input" placeholder="Email address" required>
+                    <button class="get-started-btn" type="submit">Get Started <i class="bi bi-chevron-right"></i></button>
+                </form>
+            </div>
+        </section>
+        <footer>
+            <div class="container">
+                <p class="phone-number">Question? Call <span class="underline">1-866-952-4456</span></p>
+                <div class="footer-menu-container">
+                    <ul class="footer-menu">
+                        <li class="footer-menu-li"><a class="footer-menu-link">FAQ</a></li>
+                        <li class="footer-menu-li"><a class="footer-menu-link">Media Center</a></li>
+                        <li class="footer-menu-li"><a  class="footer-menu-link">Redeem Gift Cards</a></li>
+                        <li class="footer-menu-li"><a  class="footer-menu-link">Privacy</a></li>
+                        <li class="footer-menu-li"><a  class="footer-menu-link">Speed Test</a></li>
+                        <li class="footer-menu-li"><a  class="footer-menu-link">Ad Choices</a></li>
+                        <li class="footer-menu-li"><a  class="footer-menu-link">Help Center</a></li>
+                        <li class="footer-menu-li"><a  class="footer-menu-link">Investor Relation</a></li>
+                        <li class="footer-menu-li"><a class="footer-menu-link">Buy Gift Cards</a></li>
+                        <li class="footer-menu-li"><a class="footer-menu-link">Cookies Prefrences</a></li>
+                        <li class="footer-menu-li"><a class="footer-menu-link">Legal Notics</a></li>
+                        <li class="footer-menu-li"><a class="footer-menu-link">Account</a></li>
+                        <li class="footer-menu-li"><a class="footer-menu-link">Jobs</a></li>
+                        <li class="footer-menu-li"><a class="footer-menu-link">Ways to Watch</a></li>
+                        <li class="footer-menu-li"><a class="footer-menu-link">Coroporate Information</a></li>
+                        <li class="footer-menu-li"><a class="footer-menu-link">Only on Netflix</a></li>
+                        <li class="footer-menu-li"><a class="footer-menu-link">Netflix House</a></li>
+                        <li class="footer-menu-li"><a class="footer-menu-link">Netflix Shop</a></li>
+                        <li class="footer-menu-li"><a class="footer-menu-link">Term of Use</a></li>
+                        <li class="footer-menu-li"><a class="footer-menu-link">Contactn Us</a></li>
+                        <li class="footer-menu-li"><a class="footer-menu-link">Do Not Sell or Share My Personal information</a></li>
+                    </ul>
+                </div>
+                <form>
+                            <div class="language-selector-wrapper">
+                                <select class="language-selector">
+                                    <option value="english">English</option>
+                                    <option value="espanol">Espanol</option>
+                                </select>
+                            </div>
+                        </form>
+                        <p class="footer-recaptcha-text">This page is protected by Google reCAPTCHA to ensure you're not a bot.<a class="Learn-more-link">Learn more.</a></p>
+            </div>
+        </footer>
+
+
+    <script>
+        const faqItem= document.querySelectorAll(".faq");
+        for(let i = 0; i < faqItem.length; i++) {
+            faqItem[i].addEventListener("click", function() {
+            toggleFAq(faqItem[i]);
+            })
+        }
+        function toggleFAq (faqEl) {
+            const answer = getAnswerContainer(faqEl);
+            if(!answer) {
+                return;
+            }
+            if (faqEl.classList.contains("open")) {
+                faqEl.classList.remove("open")
+            }else {
+                faqEl.classList.add("open");
+            }
+        }
+        function getAnswerContainer(faqEl) {
+            const sibling = faqEl.nextElementSibling;
+            if(!sibling || !sibling.classList.contains("faq-answer-container")) {
+                return null;
+            } else {
+                return sibling;
+            }
+            
+        }
+        const movieTrack = document.querySelector(".movie-track");
+        const movieSlides = movieTrack.querySelectorAll(".movie-slide");
+        let currentMovieSlide = 0;
+        const showMovieSlide = (direction) => {
+            currentMovieSlide = (currentMovieSlide + direction + movieSlides.length) % movieSlides.length;
+            movieTrack.style.transform = `translateX(-${currentMovieSlide * 100}%)`;
+        };
+        document.querySelector(".carousel-button-prev").addEventListener("click", () => showMovieSlide(-1));
+        document.querySelector(".carousel-button-next").addEventListener("click", () => showMovieSlide(1));
+    </script>
 </body>
 </html>
