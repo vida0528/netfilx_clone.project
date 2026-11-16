@@ -41,4 +41,4 @@ I'm continuously learning, practicing, and building projects to strengthen my co
 ---
 
 ⭐ Thanks for visiting my profile! Feel free to explore my repositories and follow my learning journey.
-site is live at https://vida0528.github.io/netfilx_clone.project/
+site is live at https://vida0528.github.io/netfilx_clone.project/index.html
